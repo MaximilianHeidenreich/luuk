@@ -1,0 +1,58 @@
+{
+    "name": "luuk",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [
+        "css utilities",
+        "js utilities",
+        "frontend framework",
+        "css animations"
+    ],
+    "author": "Maximilian Vincent Heidenreich",
+    "license": "MIT",
+    "homepage": "https://github.com/owner/project#readme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MaximilianHeidenreich/grit.css.git"
+    },
+    "files": [
+        "./dist"
+    ],
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "exports": {
+        "require": "./dist/cjs/index.js",
+        "import": "./dist/esm/index.js"
+    },
+    "scripts": {
+        "prepare": "husky install",
+        "test": "npm run check",
+        "check": "npx prettier --check ./src",
+        "format": "npx prettier --write ./src",
+        "build:esm": "BABEL_ENV=esmUnbundled babel src --extensions '.ts' --out-dir 'dist/esm' --source-maps",
+        "build:cjs": "BABEL_ENV=cjs babel src --extensions '.ts' --out-dir 'dist/cjs' --source-maps",
+        "build": "npm run format && npx gulp build",
+        "watch": "npm run format && npx gulp watch"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-less": "^5.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-uglifycss": "^1.1.0",
+        "husky": "^7.0.0",
+        "less-plugin-autoprefix": "^2.0.0",
+        "postcss": "^8.4.5",
+        "prettier": "2.5.1"
+    },
+    "dependencies": {
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "lodash": "^4.17.21",
+        "typescript": "^4.5.4"
+    }
+}

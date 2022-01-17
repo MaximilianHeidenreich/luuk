@@ -1,0 +1,1 @@
+{"version":3,"sources":["utils/animations.less","../../<input css 1>"],"names":[],"mappings":"AAAA;EACI,WAAA;CCCH","file":"animations.css","sourcesContent":[".lk-a-fade-up {\n    color: red;\n}\n",".lk-a-fade-up {\n  color: red;\n}\n"]}
