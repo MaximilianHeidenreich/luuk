@@ -16,30 +16,33 @@
         "url": "https://github.com/MaximilianHeidenreich/luuk.git"
     },
     "files": [
-        "dist"
+        "lib",
+        "esm",
+        "umd"
     ],
-    "type": "module",
-    "main": "./dist/cjs/index.js",
-    "module": "./dist/esm/index.js",
-    "exports": {
-        "require": "./dist/cjs/index.js",
-        "import": "./dist/esm/index.js"
-    },
+    "main": "lib/index.js",
+    "module": "esm/index.js",
+    "types": "lib/index.d.js",
     "scripts": {
         "prepare": "husky install",
         "test": "npm run check",
         "check": "npx prettier --check ./src",
         "format": "npx prettier --write ./src",
-        "build:esm": "BABEL_ENV=esmUnbundled babel src --extensions '.ts' --out-dir 'dist/esm' --source-maps",
-        "build:cjs": "BABEL_ENV=cjs babel src --extensions '.ts' --out-dir 'dist/cjs' --source-maps",
-        "build": "npm run format && npx gulp build",
-        "watch": "npm run format && npx gulp watch"
+        "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build:umd": "webpack"
     },
     "devDependencies": {
-        "@babel/cli": "^7.12.10",
-        "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.11",
-        "@babel/preset-typescript": "^7.12.7",
+        "@typescript-eslint/eslint-plugin": "^2.1.0",
+        "@typescript-eslint/parser": "^2.1.0",
+        "eslint": "^6.3.0",
+        "eslint-config-prettier": "^6.1.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.6.2",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.7",
         "gulp": "^4.0.2",
         "gulp-clean": "^0.4.0",
         "gulp-less": "^5.0.0",
@@ -52,8 +55,6 @@
         "prettier": "2.5.1"
     },
     "dependencies": {
-        "gulp-typescript": "^6.0.0-alpha.1",
-        "lodash": "^4.17.21",
-        "typescript": "^4.5.4"
+        "lodash": "^4.17.21"
     }
 }
