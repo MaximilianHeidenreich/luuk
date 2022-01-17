@@ -13,10 +13,10 @@
     "homepage": "https://github.com/owner/project#readme",
     "repository": {
         "type": "git",
-        "url": "https://github.com/MaximilianHeidenreich/grit.css.git"
+        "url": "https://github.com/MaximilianHeidenreich/luuk.git"
     },
     "files": [
-        "./dist"
+        "dist"
     ],
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
